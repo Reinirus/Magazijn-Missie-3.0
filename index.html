@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="nl"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#151b22"><title>Magazijn Missie — oefenen in het magazijn</title><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="choice.css"></head><body>
+<section id="missionChoice" class="mission-choice" role="dialog" aria-modal="true" aria-labelledby="choiceTitle">
+  <div class="choice-panel">
+    <img class="choice-logo" src="symbion-logo.png" alt="Symbion — school voor praktijkonderwijs">
+    <div class="eyebrow orange">KIES JOUW WERKDAG</div>
+    <h1 id="choiceTitle">Wat wil je vandaag oefenen?</h1>
+    <p>Kies één onderdeel of doe de hele werkdag.</p>
+    <div class="choice-grid">
+      <button class="choice-card" data-mode="warehouse"><span class="choice-number">5 niveaus</span><b>Magazijn</b><small>Rijden, scannen, voorraad tellen, orderpicken en laden.</small><strong>Start magazijn →</strong></button>
+      <button class="choice-card" data-mode="retail"><span class="choice-number">12 niveaus</span><b>Winkel & balie</b><small>Tien klanten helpen, producten halen, inventariseren en kassa opmaken.</small><strong>Start winkel →</strong></button>
+      <button class="choice-card choice-card-all" data-mode="both"><span class="choice-number">17 niveaus</span><b>Allebei</b><small>Eerst alle magazijnmissies. Daarna gaat de winkel open.</small><strong>Start hele werkdag →</strong></button>
+    </div>
+    <p class="choice-note">Je punten blijven tijdens jouw gekozen werkdag zichtbaar.</p>
+  </div>
+</section>
+<header><a class="brand" href="./"><span class="brand-icon">▥</span><span>MAGAZIJN <strong>MISSIE</strong><small>Jouw werkdag begint hier</small></span></a><div class="topstats"><span id="vehicleLabel">Pompwagen</span><span><b id="points">0</b> punten</span><span id="safeBadge">Veilig rijden</span></div><button id="counterEntry" class="counter-entry" hidden>Balie & winkel →</button><button id="helpBtn" class="subtle">? Uitleg</button><button id="teacherBtn" class="subtle">Docent</button></header>
+<main><aside class="sidebar"><img class="school-logo" src="symbion-logo.png" alt="Symbion — school voor praktijkonderwijs"><div class="eyebrow">VANDAAG IN HET MAGAZIJN</div><h1>Goed aan het werk.</h1><p class="muted intro">Kijk. Controleer. Voer uit.</p><div class="level-head"><span>Kies je niveau</span><span id="levelCount">1 / 5</span></div><div id="levels" class="levels"></div><section class="assignment"><div class="eyebrow orange">JE OPDRACHT <button id="readBtn" title="Lees de opdracht voor" aria-label="Lees de opdracht voor">◖))</button></div><h2 id="missionTitle">De eerste levering</h2><p id="missionDescription"></p><ol id="steps"></ol><button id="assignmentBtn" class="subtle wide">Bekijk opdrachtbrief</button></section><div class="lesson-note"><span class="note-icon">i</span><p id="lessonNote">Houd de lading laag. Kijk goed om je heen.</p></div><button id="resetBtn" class="subtle wide">↻ Opnieuw oefenen</button></aside>
+<section class="workspace"><div class="scene-top"><div><span class="live-dot"></span><b id="sceneLabel">Magazijn · ontvangst</b><span class="room-label">HAL 01</span></div><div class="camera-tabs" aria-label="Camera kiezen"><button data-camera="follow" class="selected">Achterkant</button><button data-camera="cab">Bestuurder</button><button data-camera="side">Zijkant</button><button data-camera="top">Overzicht</button></div></div><div class="game-area" id="gameArea"><canvas id="scene" aria-label="Interactief 3D-magazijn. Gebruik de pijltjestoetsen om te rijden." tabindex="0"></canvas><div class="objective-chip"><span class="target-icon">◎</span><div><small>VOLGENDE STAP</small><b id="currentHint">Rijd naar de vrachtwagen</b></div><button id="hintBtn" aria-label="Toon route">Route</button></div><div class="minimap"><canvas id="map" width="176" height="142" aria-label="Plattegrond met voertuig en bestemming"></canvas><div><i class="orange-square"></i> jij <i class="green-square"></i> bestemming</div></div><div id="toast" class="toast" role="status" aria-live="polite"></div><div class="vehicle-hud"><span id="speed">0,0</span><small>km/u</small><div class="hud-divider"></div><span id="height">0,10</span><small>m<br>vorkhoogte</small><div class="hud-divider"></div><small id="loadStatus">Geen lading</small></div><button class="pause-button" id="pauseBtn" aria-label="Pauze">Ⅱ</button><div id="webglError" hidden>Dit apparaat ondersteunt de 3D-weergave niet. Open de app op een recente schoollaptop met Chrome of Edge.</div></div><div class="instruction-strip"><span class="step-number" id="stepNumber">1</span><div><b id="instructionTitle">Rijd naar de pallet bij de vrachtwagen.</b><p id="instructionText">De groene ring laat zien waar je moet zijn.</p></div><button id="actionBtn" class="primary">Pak pallet <span>E</span></button></div><section class="coach" aria-label="Hulp bij deze stap"><div class="coach-icon">?</div><div class="coach-copy"><span class="coach-label" id="coachProgress">STAP 1 VAN 5</span><b id="coachHint">Volg de gele stippen.</b><p id="coachPraise" role="status" aria-live="polite">Je mag rustig oefenen. Probeer het stap voor stap.</p></div><div class="coach-actions"><button id="coachRead" aria-label="Lees de hint voor">◖)) Voorlezen</button><button id="coachHelp" class="primary">Help mij</button></div></section><div class="control-bar"><div class="drive-controls"><span class="control-label">RIJDEN</span><div class="dpad"><button data-drive="left" aria-label="Stuur links">←</button><div><button data-drive="forward" aria-label="Rijd vooruit">↑</button><button data-drive="backward" aria-label="Rijd achteruit">↓</button></div><button data-drive="right" aria-label="Stuur rechts">→</button></div></div><label class="speed-controls"><span class="control-label">SNELHEID KIEZEN</span><select id="speedChoice" aria-label="Kies je rijsnelheid"><option value="calm">Rustig</option><option value="normal">Normaal</option><option value="quick">Vlot</option></select><small id="speedLimit">Max. 4,1 km/u</small></label><div class="lift-controls"><span class="control-label">VORKEN</span><button data-lift="up">↑ Omhoog <kbd>R</kbd></button><button data-lift="down">↓ Omlaag <kbd>F</kbd></button></div><div class="extra-controls"><button id="scanBtn">▥ Scannen <kbd>S</kbd></button><button id="hornBtn">◖)) Claxon <kbd>H</kbd></button><button id="brakeBtn">■ Rem <kbd>spatie</kbd></button></div></div><div class="workspace-footer"><span>Oefen rustig. Je leert van elke stap.</span><span>Simulatie · geen rijbevoegdheid</span></div></section></main>
+<section id="retailWorld" class="retail-world" hidden>
+  <aside class="retail-sidebar">
+    <img class="school-logo" src="symbion-logo.png" alt="Symbion — school voor praktijkonderwijs">
+    <div class="eyebrow">VERVOLGMISSIE</div><h1>Balie & winkel</h1>
+    <div class="day-badge"><span id="shiftLabel">Ronde 1</span><b id="customerProgress">Niveau 6 van 17</b></div>
+    <div class="retail-progress"><i id="retailProgressBar"></i></div>
+    <ol id="retailSteps" class="retail-steps"></ol>
+    <div class="lesson-note"><span class="note-icon">i</span><p id="retailTip">Luister eerst goed naar de vraag van de klant.</p></div>
+    <button id="retailRead" class="subtle wide">◖)) Lees opdracht voor</button>
+    <button id="backWarehouse" class="subtle wide">← Terug naar magazijn</button>
+  </aside>
+  <section class="retail-main">
+    <div class="retail-top"><div><span class="live-dot"></span><b>Vakhandel · balie en voorraad</b><span class="room-label">WERKDAG</span></div><div class="retail-score"><span>Dagomzet <b id="turnoverDisplay">€ 0,00</b></span><span>Score <b id="retailPoints">0</b></span></div></div>
+    <div id="shopStage" class="shop-stage" tabindex="0" aria-label="Winkel en magazijn. Gebruik de pijltjestoetsen om te lopen of rijden.">
+      <div class="photo-note">Fotorealistische oefenomgeving</div>
+      <div id="targetMarker" class="retail-target" aria-hidden="true"><span></span><b>BESTEMMING</b></div>
+      <div id="retailPlayer" class="retail-player"><span id="playerVehicle">JIJ</span></div>
+      <div id="retailToast" class="toast" role="status" aria-live="polite"></div>
+      <div class="retail-minimap" aria-hidden="true"><span id="miniPlayer"></span><i id="miniTarget"></i><b>BALIE</b></div>
+    </div>
+    <div class="retail-command">
+      <div><span class="control-label">OPDRACHT VAN DE KLANT</span><h2 id="customerTitle">De winkel gaat open</h2><p id="customerQuestion">Help tien klanten en rond daarna de werkdag af.</p></div>
+      <button id="retailAction" class="primary">Open de winkel</button>
+    </div>
+    <div class="retail-controls">
+      <div class="retail-dpad"><button data-retail-move="left" aria-label="Ga links">←</button><span><button data-retail-move="up" aria-label="Ga vooruit">↑</button><button data-retail-move="down" aria-label="Ga achteruit">↓</button></span><button data-retail-move="right" aria-label="Ga rechts">→</button></div>
+      <button id="catalogBtn">▤ Productcatalogus</button><button id="orderFolderBtn">▣ Ordermap</button><button id="retailLiftBtn" hidden>⇧ Heftruck: heffen</button>
+      <div class="retail-load"><span id="retailMode">Te voet</span><b id="retailLoad">Geen product</b></div>
+    </div>
+  </section>
+  <aside class="retail-order-panel"><div class="eyebrow orange">KLANTDOSSIER</div><h2 id="customerName">Nog geen klant</h2><div id="orderSummary" class="order-summary"><p>Open de winkel om te beginnen.</p></div><div class="cash-card"><span>Klanten geholpen</span><b id="servedCount">0 / 10</b></div><div class="cash-card"><span>Producten verwerkt</span><b id="itemsCount">0</b></div><div class="cash-card"><span>Punten blijven staan</span><b id="sessionPoints">0</b></div></aside>
+</section>
+<dialog id="modal"><form method="dialog"><button class="modal-close" aria-label="Sluiten" value="close">×</button></form><div id="modalContent"></div></dialog><script type="module" src="game.js"></script><script type="module" src="retail.js"></script><script src="choice.js"></script></body></html>

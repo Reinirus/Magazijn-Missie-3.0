@@ -1,0 +1,44 @@
+MAGAZIJN MISSIE — GITHUB EN OFFLINE
+===================================
+
+INHOUD
+- Startkeuze: alleen Magazijn, alleen Winkel & balie, of Allebei.
+- Magazijn: 5 niveaus.
+- Winkel & balie: 12 niveaus.
+- Allebei: 17 niveaus in de bestaande volgorde.
+- De score blijft zichtbaar zolang de app geopend blijft.
+- Alle programmaonderdelen, afbeeldingen en het Symbion-logo staan lokaal.
+- Er is geen internetverbinding nodig tijdens het spelen.
+- De kassacontrole gebruikt één vast verkoopoverzicht voor pin, contant en omzet.
+- Bedragen mogen met een komma, punt of euroteken worden ingevoerd.
+- Dubbelklikken kan een betaling, scan of voorraadhandeling niet meer dubbel verwerken.
+- De inventariscontrole meldt nu per artikel welk aantal aandacht nodig heeft.
+- De reden voor het schroevenverschil wordt pas gecontroleerd als alle vier aantallen kloppen.
+
+OFFLINE GEBRUIKEN OP EEN WINDOWS-SCHOOLLAPTOP
+1. Pak dit ZIP-bestand helemaal uit.
+2. Laat alle bestanden bij elkaar in dezelfde map staan.
+3. Dubbelklik op START-MAGAZIJN-WINDOWS.bat.
+4. De app opent vanzelf in de standaardbrowser. Laat het zwarte venster open
+   tijdens het spelen. Sluit dat venster als de les klaar is.
+
+OP MAC OF LINUX
+Open een terminal in deze map en voer uit:
+python3 -m http.server 8765
+Open daarna http://localhost:8765 in de browser.
+
+GITHUB PAGES
+1. Maak een nieuwe repository.
+2. Upload alle uitgepakte bestanden naar de hoofdmap van de repository.
+3. Ga in GitHub naar Settings > Pages.
+4. Kies Deploy from a branch, branch main en map /(root).
+5. Sla de instelling op.
+
+LET OP
+- De lokale startknop gebruikt alleen onderdelen die standaard bij Windows
+  horen. Er worden geen bestanden van internet opgehaald.
+- De app bewaart geen namen of persoonsgegevens.
+- Deze simulator geeft geen rijbevoegdheid. Oefen echte voertuigen alleen
+  onder begeleiding en volgens de veiligheidsafspraken van school.
+
+Versie: Magazijn + Balie & Winkel — 30 oktober 2026
